@@ -1,0 +1,55 @@
+.promo-container {
+  display: flex;
+  background: #39db4c;
+  padding: 2vw;
+  justify-content: space-between;
+}
+
+.promo-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-side-title {
+  color: #066819;
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1vw, 1.5rem);
+}
+
+.promo-title {
+  color: #066819;
+  font-weight: 700;
+  font-size: clamp(3rem, 4vw, 3rem);
+}
+
+.promo-order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  padding: 0.5rem 1.5rem;
+
+  border: none;
+  border-radius: 999px;
+
+  background: white;
+  color: #066819;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.promo-order-btn:hover {
+  transform: translateY(-2px);
+}
+
+.promo-order-btn-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

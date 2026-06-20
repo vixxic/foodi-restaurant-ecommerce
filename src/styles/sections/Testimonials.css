@@ -1,0 +1,24 @@
+.testimonials-section {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.testimonials-text-con {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.testimonials-img {
+  width: 40%;
+}
+
+.testimonials-img img {
+  width: 100%;
+}

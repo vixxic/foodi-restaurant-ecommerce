@@ -1,0 +1,25 @@
+body {
+  margin: 0%;
+  background-color: pink;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2vw, 32px);
+}
+
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.section {
+  padding: 0 15px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: clamp(3rem, 4vw, 3rem);
+}

@@ -1,0 +1,70 @@
+.category-card {
+  width: 200px;
+  height: 200px;
+
+  background: #fff;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.icon-wrapper-category {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+  background: "#C1F1C6";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+}
+
+.icon-wrapper-category img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+/* kalo plain box di section services */
+
+.icon-wrapper-services {
+  width: 100%;
+  height: 100%;
+  padding: 1vw;
+}
+
+.icon-wrapper-services img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.category-card h3 {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 700;
+  color: #333;
+}
+
+.category-card p {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #777;
+  font-weight: 500;
+}

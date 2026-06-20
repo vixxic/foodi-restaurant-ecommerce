@@ -1,0 +1,21 @@
+.services-section {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  margin-bottom: 5vw;
+}
+
+.services-text-con {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.services-type {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vw;
+}

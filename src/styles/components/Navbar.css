@@ -1,0 +1,42 @@
+.navbar {
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+.logo-con {
+  margin-right: 10vw;
+}
+
+.logo-con img {
+  width: clamp(90px, 7vw, 140px);
+  height: auto;
+}
+
+.nav-links ul {
+  font-size: clamp(0.8rem, 0.8vw, 1rem);
+  font-weight: 500;
+  gap: 1.5vw;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.box-3-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.box-3-nav svg {
+  font-size: clamp(1.1rem, 1.2vw, 1.5rem);
+}

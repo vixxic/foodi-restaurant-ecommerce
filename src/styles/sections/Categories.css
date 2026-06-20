@@ -1,0 +1,16 @@
+.category-section {
+  display: flex;
+  flex-direction: column;
+  padding: 10vw 0;
+}
+
+.category-section h1 {
+  text-align: center;
+}
+
+.categories-con {
+  display: flex;
+  margin-top: 3vw;
+  justify-content: center;
+  gap: 1.5vw;
+}
