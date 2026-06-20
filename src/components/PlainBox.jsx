@@ -13,7 +13,9 @@ function PlainBox({ img, title, data, section }) {
       {section === "category" ? (
         <>
           <h3>{title}</h3>
-          <p></p>
+          <p>
+            `({data} {title})`
+          </p>
         </>
       ) : (
         ""

@@ -1,3 +1,11 @@
+.navbar-con {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  width: 100%;
+}
+
 .navbar {
   max-width: 1300px;
   margin: 0 auto;

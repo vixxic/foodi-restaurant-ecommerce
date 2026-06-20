@@ -12,30 +12,23 @@ import { useEffect, useState } from "react";
 import { LuDessert } from "react-icons/lu";
 
 function Shop() {
-  const [products, setProducts] = useState([]);
-  setProducts(data);
+  const [products] = useState(data);
 
   const [filteredData, setFilteredData] = useState("all");
 
-  useEffect(() => {
-    const handleLike = () => {
-      alert("Please Login first");
-    };
-  }, []);
+  const handleLike = () => {
+    // e.stopPropagation();
+    alert("Please Login first");
+  };
 
   const handleCategory = (category) => {
-    if (category === "main dish") {
-      setFilteredData("main dish");
-    } else if (category === "appetizer") {
-      setFilteredData("appetizer");
-    } else if (category === "dessert") {
-      setFilteredData("dessert");
-    } else if (category === "drinks") {
-      setFilteredData("drinks");
-    } else {
-      setFilteredData("all");
-    }
+    setFilteredData(category);
   };
+
+  const displayedProducts =
+    filteredData === "all"
+      ? products
+      : products.filter((product) => product.mealType === filteredData);
 
   return (
     <div className="shop-section section">
@@ -45,39 +38,39 @@ function Shop() {
             onClick={() => {
               handleCategory("all");
             }}
-            className="category-btn active"
+            className={`category-btn ${filteredData === "all" ? "active" : ""}`}
           >
             All
           </button>
           <button
             onClick={() => {
-              handleCategory("main dish");
+              handleCategory("Main Dish");
             }}
-            className="category-btn "
+            className={`category-btn ${filteredData === "Main Dish" ? "active" : ""}`}
           >
             Main Dish
           </button>
           <button
             onClick={() => {
-              handleCategory("appetizer");
+              handleCategory("Appetizer");
             }}
-            className="category-btn"
+            className={`category-btn ${filteredData === "Appetizer" ? "active" : ""}`}
           >
             Appetizer
           </button>
           <button
             onClick={() => {
-              handleCategory("dessert");
+              handleCategory("Dessert");
             }}
-            className="category-btn"
+            className={`category-btn ${filteredData === "Dessert" ? "active" : ""}`}
           >
             Dessert
           </button>
           <button
             onClick={() => {
-              handleCategory("drinks");
+              handleCategory("Drinks");
             }}
-            className="category-btn"
+            className={`category-btn ${filteredData === "Drinks" ? "active" : ""}`}
           >
             Drinks
           </button>
@@ -104,7 +97,7 @@ function Shop() {
       <hr style={{ margin: 0 }} />
 
       <div className="product-con">
-        {data.map((product) => (
+        {displayedProducts.map((product) => (
           <div key={product.id} className="product-card">
             <div onClick={handleLike} className="favorite-btn">
               {product.like === true ? <FaHeart /> : <FaRegHeart />}
@@ -117,6 +110,12 @@ function Shop() {
             />
 
             <h3 className="product-title">{product.name}</h3>
+
+            <div className="product-tags-con">
+              {product.tags.map((tag, index) => (
+                <p className="tag-badge">{tag}</p>
+              ))}
+            </div>
 
             <p className="product-price">
               <span>$</span>
@@ -135,81 +134,13 @@ function Shop() {
             </button>
           </div>
         ))}
+
+        {displayedProducts.length === 0 && (
+          <p className="no-data">No dishes found in this category.</p>
+        )}
       </div>
     </div>
   );
 }
 
 export default Shop;
-
-//nomor 8
-
-// import "./App.css";
-// import { useEffect, useState } from "react";
-
-// function App() {
-//   const [products, setProducts] = useState([]);
-//   const [filteredData, setFilteredData] = useState("all");
-
-//   const handleCategory = (category) => {
-//     if (category === "men's clothing") {
-//       setFilteredData("men's clothing");
-//     } else if (category === "jewelery") {
-//       setFilteredData("jewelery");
-//     } else if (category === "electronics") {
-//       setFilteredData("electronics");
-//     } else if (category === "women's clothing") {
-//       setFilteredData("women's clothing");
-//     } else {
-//       setFilteredData("all");
-//     }
-//   };
-
-//   const displayedProducts =
-//     filteredData === "all"
-//       ? products
-//       : products.filter((product) => product.category === filteredData);
-
-//   useEffect(() => {
-//     const getData = async () => {
-//       const respone = await fetch("https://fakestoreapi.com/products");
-//       const data = await respone.json();
-
-//       setProducts(data);
-//     };
-
-//     getData();
-//   }, []);
-
-//   return (
-//     <>
-//       <div>
-//         <h1>Categorys</h1>
-//         <div style={{ display: "flex", gap: "10px" }}>
-//           <button onClick={() => handleCategory("all")}>All</button>
-//           <button onClick={() => handleCategory("men's clothing")}>
-//             men clothing
-//           </button>
-//           <button onClick={() => handleCategory("jewelery")}>jewelery</button>
-//           <button onClick={() => handleCategory("electronics")}>
-//             electronic
-//           </button>
-//           <button onClick={() => handleCategory("women's clothing")}>
-//             women clothing
-//           </button>
-//         </div>
-//         <div>
-//           {displayedProducts.map((product) => (
-//             <div key={product.id}>
-//               <h2>{product.title}</h2>
-//               <img src={product.image} alt={product.title} width="150" />
-//               <p>${product.price}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;

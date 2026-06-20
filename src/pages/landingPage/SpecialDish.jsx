@@ -107,27 +107,31 @@ function SpecialDish() {
               <div onClick={handleLike} className="favorite-btn">
                 {product.like === true ? <FaHeart /> : <FaRegHeart />}
               </div>
-
               <img
                 className="product-image"
                 src={product.image}
                 alt={product.name}
               />
-
               <h3 className="product-title">{product.name}</h3>
+
+              <div className="product-tags-con">
+                {product.tags.map((tag, index) => (
+                  <p key={index} className="tag-badge">
+                    {tag}
+                  </p>
+                ))}
+              </div>
 
               <p className="product-price">
                 <span>$</span>
                 {product.price}
               </p>
-
               <div className="product-rating">
                 <FaStar />{" "}
                 <span>
                   {product.rating}({product.reviewCount})
                 </span>
               </div>
-
               <button className="add-btn">
                 <FaPlus />
               </button>
