@@ -21,6 +21,7 @@ import { Routes, Route } from "react-router";
 import ShopHero from "./pages/shopPage/ShopHero";
 import Shop from "./pages/shopPage/Shop";
 import GreenPreFooter from "./pages/shopPage/GreenPreFooter";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   useEffect(() => {
@@ -86,6 +87,7 @@ function App() {
           </div>
         }
       />
+
       <Route
         path="/home"
         element={
@@ -100,6 +102,7 @@ function App() {
           </div>
         }
       />
+
       <Route
         path="/all-menu"
         element={
@@ -108,6 +111,17 @@ function App() {
             <ShopHero />
             <Shop />
             <GreenPreFooter />
+            <Footer />
+          </div>
+        }
+      />
+
+      <Route
+        path="/cart"
+        element={
+          <div className="app inter-font">
+            <Navbar />
+            <Cart />
             <Footer />
           </div>
         }

@@ -1,7 +1,8 @@
 .category-section {
   display: flex;
   flex-direction: column;
-  padding: 10vw 0;
+  padding: 60px 0;
+  width: 100%;
 }
 
 .category-section h1 {
@@ -10,7 +11,22 @@
 
 .categories-con {
   display: flex;
-  margin-top: 3vw;
+  margin-top: 24px;
   justify-content: center;
-  gap: 1.5vw;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .category-section {
+    padding: 40px 0;
+    margin: 10vw 0;
+  }
+
+  .categories-con {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0 16px;
+  }
 }

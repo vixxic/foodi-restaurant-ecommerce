@@ -2,7 +2,10 @@ import "../../styles/sections/Home.css";
 import GreenBtn from "../../components/GreenBtn";
 import { FaPlay } from "react-icons/fa";
 
+import { useNavigate } from "react-router";
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div id="home" className="home-section section">
       <div className="home-text-con">
@@ -17,7 +20,9 @@ function Home() {
         </p>
 
         <div>
-          <GreenBtn text="Order Now" />
+          <div onClick={() => navigate("/cart")}>
+            <GreenBtn text="Order Now" />
+          </div>
           <p>Watch Video</p>
           <button className="order-now-btn">
             <FaPlay />

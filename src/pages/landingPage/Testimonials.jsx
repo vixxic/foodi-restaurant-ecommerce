@@ -25,7 +25,10 @@ function Testimonials() {
           }
         />
 
-        <img src="/testimonials/cus-feedback.png" />
+        <img
+          src="/testimonials/cus-feedback.png"
+          className="customer-feedback-img"
+        />
       </div>
     </div>
   );

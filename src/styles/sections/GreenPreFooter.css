@@ -1,25 +1,38 @@
 .promo-container {
   display: flex;
   background: #39db4c;
-  padding: 2vw;
+  padding: 24px;
   justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  border-radius: 12px;
 }
 
 .promo-text-container {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .promo-side-title {
   color: #066819;
   font-weight: 500;
-  font-size: clamp(0.8rem, 1vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.3rem);
 }
 
 .promo-title {
   color: #066819;
   font-weight: 700;
-  font-size: clamp(3rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+.promo-order-btn-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .promo-order-btn {
@@ -27,20 +40,15 @@
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-
-  padding: 0.5rem 1.5rem;
-
+  padding: 0.75rem 2rem;
   border: none;
   border-radius: 999px;
-
   background: white;
   color: #066819;
-
   font-size: 1rem;
   font-weight: 600;
-
   cursor: pointer;
-
+  white-space: nowrap;
   transition: all 0.3s ease;
 }
 
@@ -48,8 +56,31 @@
   transform: translateY(-2px);
 }
 
-.promo-order-btn-con {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 768px) {
+  .promo-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .promo-order-btn-con {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .promo-order-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-container {
+    padding: 16px;
+  }
+
+  .promo-order-btn {
+    max-width: 100%;
+  }
 }

@@ -1,11 +1,13 @@
 import "../styles/components/Navbar.css";
-import { FiSearch } from "react-icons/fi";
-import { IoBagOutline } from "react-icons/io5";
+import { IoPersonOutline, IoBagOutline } from "react-icons/io5";
 import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 import GreenBtn from "./GreenBtn";
 
 function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <div className="navbar-con">
       <nav className="navbar navbar-expand-lg ">
@@ -107,14 +109,6 @@ function Navbar() {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Online Ordering
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
                       Gift Cards
                     </a>
                   </li>
@@ -132,8 +126,8 @@ function Navbar() {
             </ul>
 
             <div className="box-3-nav">
-              <FiSearch />
-              <IoBagOutline />
+              <IoPersonOutline />
+              <IoBagOutline onClick={() => navigate("/cart")} />
               <GreenBtn text="Contact" />
             </div>
           </div>
