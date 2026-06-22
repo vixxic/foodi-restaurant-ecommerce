@@ -1,6 +1,7 @@
 import "../styles/components/Navbar.css";
 import { IoPersonOutline, IoBagOutline } from "react-icons/io5";
 import { Link } from "react-router";
+import { HashLink } from "react-router-hash-link";
 import { useNavigate } from "react-router";
 
 import GreenBtn from "./GreenBtn";
@@ -33,7 +34,10 @@ function Navbar() {
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li
+                className="nav-item"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
                 <Link
                   className="nav-link active"
                   aria-current="page"
@@ -66,9 +70,13 @@ function Navbar() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#categories">
+                    <HashLink
+                      className="dropdown-item"
+                      smooth
+                      to="/#categories"
+                    >
                       Categories
-                    </a>
+                    </HashLink>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
@@ -80,39 +88,10 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#services"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+              <li className="nav-item">
+                <HashLink className="nav-link active" smooth to="/#services">
                   Services
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#services">
-                      All Services
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Catering
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Gift Cards
-                    </a>
-                  </li>
-                </ul>
+                </HashLink>
               </li>
               <li className="nav-item">
                 <a
@@ -124,11 +103,12 @@ function Navbar() {
                 </a>
               </li>
             </ul>
-
             <div className="box-3-nav">
-              <IoPersonOutline />
+              <IoPersonOutline onClick={() => navigate("/profile")} />
               <IoBagOutline onClick={() => navigate("/cart")} />
-              <GreenBtn text="Contact" />
+              <div onClick={() => navigate("/contact")}>
+                <GreenBtn text="Contact" />
+              </div>
             </div>
           </div>
         </div>

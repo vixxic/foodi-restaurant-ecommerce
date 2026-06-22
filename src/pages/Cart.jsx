@@ -1,4 +1,4 @@
-import "../../styles/sections/Cart.css";
+import "../styles/sections/Cart.css";
 import { AiOutlineDelete } from "react-icons/ai";
 
 function Cart() {

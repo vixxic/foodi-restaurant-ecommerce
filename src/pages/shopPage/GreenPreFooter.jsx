@@ -1,7 +1,10 @@
 import "../../styles/sections/GreenPreFooter.css";
 import SecTextCon from "../../components/SecTextCon";
 
+import { useNavigate } from "react-router";
+
 function GreenPreFooter() {
+  const navigate = useNavigate();
   return (
     <div className="promo-container section">
       <div className="promo-text-container">
@@ -13,7 +16,7 @@ function GreenPreFooter() {
         </p>
       </div>
 
-      <div className="promo-order-btn-con">
+      <div className="promo-order-btn-con" onClick={() => navigate("/cart")}>
         <div className="promo-order-btn">Order Now</div>
       </div>
     </div>

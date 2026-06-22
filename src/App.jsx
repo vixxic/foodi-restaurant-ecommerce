@@ -21,7 +21,12 @@ import { Routes, Route } from "react-router";
 import ShopHero from "./pages/shopPage/ShopHero";
 import Shop from "./pages/shopPage/Shop";
 import GreenPreFooter from "./pages/shopPage/GreenPreFooter";
-import Cart from "./pages/cart/Cart";
+
+import Profile from "./pages/Profile";
+
+import Cart from "./pages/Cart";
+
+import Contact from "./pages/Contact";
 
 function App() {
   useEffect(() => {
@@ -117,11 +122,33 @@ function App() {
       />
 
       <Route
+        path="/profile"
+        element={
+          <div className="app inter-font">
+            <Navbar />
+            <Profile />
+            <Footer />
+          </div>
+        }
+      />
+
+      <Route
         path="/cart"
         element={
           <div className="app inter-font">
             <Navbar />
             <Cart />
+            <Footer />
+          </div>
+        }
+      />
+
+      <Route
+        path="/contact"
+        element={
+          <div className="app inter-font">
+            <Navbar />
+            <Contact />
             <Footer />
           </div>
         }
