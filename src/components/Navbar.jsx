@@ -63,11 +63,7 @@ function Navbar() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link
-                      className="dropdown-item"
-                      to="/all-menu"
-                      onClick={() => setOpen(false)}
-                    >
+                    <Link className="dropdown-item" to="/all-menu">
                       All Menu
                     </Link>
                   </li>
