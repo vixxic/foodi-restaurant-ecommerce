@@ -1,8 +1,7 @@
 import "../styles/components/Navbar.css";
 import { IoPersonOutline, IoBagOutline } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { useNavigate } from "react-router";
 
 import GreenBtn from "./GreenBtn";
 

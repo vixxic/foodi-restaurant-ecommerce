@@ -15,7 +15,7 @@ import Testimonials from "./pages/landingPage/Testimonials";
 import Services from "./pages/landingPage/Services";
 import Footer from "./pages/landingPage/Footer";
 
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 // e-commerce page
