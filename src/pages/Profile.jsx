@@ -7,20 +7,47 @@ import {
 } from "react-icons/io5";
 
 import { PiSignOutLight } from "react-icons/pi";
+import { FaPen } from "react-icons/fa";
+
+import { useContext } from "react";
+import { GlobalContext } from "../globalContext/GlobalContext";
+
+import { replace, useNavigate } from "react-router";
 
 function Profile() {
+  const { userName, email, logout } = useContext(GlobalContext);
+  const initialUserName = userName?.charAt(0).toUpperCase();
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/home", { replace: true });
+
+    requestAnimationFrame(() => {
+      logout();
+    });
+  };
+
   return (
     <div className="profile-container">
       <div className="profile-header-card">
-        <div className="profile-img-wrapper">
-          <img src="/Home-img.png" alt="Profile" className="profile-img" />
-          <button className="edit-img-btn">✏️</button>
+        <div
+          className="profile-img-wrapper"
+          style={{ backgroundColor: "rgb(196, 233, 196)" }}
+        >
+          <div className="profile-initial">
+            <div> {initialUserName}</div>
+          </div>
+
+          <button className="edit-img-btn">
+            <FaPen color="white" />
+          </button>
         </div>
         <div className="profile-header-info">
-          <h2>John Doe</h2>
-          <p className="profile-email">john.doe@greenbite.com</p>
+          <h2>{userName}</h2>
+          <p className="profile-email">{email}</p>
           <div className="profile-tags">
-            <span className="tag tag-pro">● Pro Member</span>
+            <span className="tag tag-pro">● Member</span>
             <span className="tag tag-saved">❤️ 124 Bites Saved</span>
           </div>
         </div>
@@ -45,7 +72,7 @@ function Profile() {
                 <IoBagOutline />
                 Help Center
               </li>
-              <li className="logout-btn">
+              <li onClick={handleLogout} className="logout-btn">
                 <PiSignOutLight />
                 logout
               </li>

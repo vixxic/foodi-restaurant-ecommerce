@@ -48,3 +48,13 @@
 .box-3-nav svg {
   font-size: clamp(1.1rem, 1.2vw, 1.5rem);
 }
+
+.profile-signed {
+  background-color: rgb(196, 233, 196);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

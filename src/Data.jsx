@@ -10,6 +10,7 @@ const data = [
     price: 24,
     like: false,
     special: true,
+    quantity: 0,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const data = [
     price: 18,
     like: false,
     special: false,
+    quantity: 0,
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const data = [
     price: 10,
     like: false,
     special: false,
+    quantity: 0,
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ const data = [
     price: 22,
     like: false,
     special: true,
+    quantity: 0,
   },
   {
     id: 5,
@@ -58,6 +62,7 @@ const data = [
     price: 21,
     like: false,
     special: false,
+    quantity: 0,
   },
   {
     id: 6,
@@ -70,6 +75,7 @@ const data = [
     price: 15,
     like: false,
     special: false,
+    quantity: 0,
   },
   {
     id: 7,
@@ -81,6 +87,7 @@ const data = [
     mealType: "Breakfast",
     price: 13,
     like: false,
+    quantity: 0,
   },
   {
     id: 8,
@@ -93,6 +100,7 @@ const data = [
     price: 23,
     like: false,
     special: true,
+    quantity: 0,
   },
   {
     id: 11,
@@ -105,6 +113,7 @@ const data = [
     price: 27,
     like: false,
     special: false,
+    quantity: 0,
   },
   {
     id: 16,
@@ -117,6 +126,7 @@ const data = [
     price: 25,
     like: false,
     special: true,
+    quantity: 0,
   },
   {
     id: 18,
@@ -129,6 +139,7 @@ const data = [
     price: 26,
     like: false,
     special: true,
+    quantity: 0,
   },
   {
     id: 22,
@@ -141,6 +152,7 @@ const data = [
     price: 8,
     like: false,
     special: false,
+    quantity: 0,
   },
   {
     id: 23,
@@ -153,6 +165,7 @@ const data = [
     price: 12,
     like: false,
     special: true,
+    quantity: 0,
   },
   {
     id: 30,
@@ -165,6 +178,7 @@ const data = [
     price: 9,
     like: false,
     special: false,
+    quantity: 0,
   },
 ];
 

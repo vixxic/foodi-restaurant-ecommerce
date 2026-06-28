@@ -6,8 +6,14 @@ import { useNavigate } from "react-router";
 
 import GreenBtn from "./GreenBtn";
 
+import { useContext } from "react";
+import { GlobalContext } from "../globalContext/GlobalContext";
+
 function Navbar() {
   const navigate = useNavigate();
+
+  const { userName, cartItems } = useContext(GlobalContext);
+  const initialUserName = userName.slice(0, 1).toUpperCase();
 
   return (
     <div className="navbar-con">
@@ -104,8 +110,26 @@ function Navbar() {
               </li>
             </ul>
             <div className="box-3-nav">
-              <IoPersonOutline onClick={() => navigate("/profile")} />
-              <IoBagOutline onClick={() => navigate("/cart")} />
+              {userName.length === 0 ? (
+                <IoPersonOutline onClick={() => navigate("/profile")} />
+              ) : (
+                <div
+                  className="profile-signed"
+                  onClick={() => navigate("/profile")}
+                >
+                  {initialUserName}
+                </div>
+              )}
+              <div>
+                {cartItems.length > 0 ? (
+                  <div
+                    style={{ background: "red", width: "5px", height: "5px" }}
+                  ></div>
+                ) : (
+                  ""
+                )}
+                <IoBagOutline onClick={() => navigate("/cart")} />
+              </div>
               <div onClick={() => navigate("/contact")}>
                 <GreenBtn text="Contact" />
               </div>

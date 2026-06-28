@@ -1,0 +1,123 @@
+.sign-in-section {
+  background-color: white;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03);
+  padding: 40px;
+  border-radius: 10px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 500px;
+}
+
+.sign-in-form-title {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sign-in-form-title h1 {
+  margin: 0%;
+}
+
+.sign-in-form-title span {
+  position: absolute;
+  top: 2%;
+  left: 90%;
+  font-size: 20px;
+}
+
+.sign-in-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sign-in-input-group label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: 0.05em;
+}
+
+.sign-in-input-group input,
+.sign-in-input-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: #f3f4f6;
+  border: 1px solid transparent;
+  border-radius: 8px !important;
+  font-size: 14px;
+  color: #1f2937;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.sign-in-input-group input:focus,
+.sign-in-input-group textarea:focus {
+  background: #ffffff;
+  border-color: #39d353;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+}
+
+.sign-in-input-group textarea {
+  resize: none;
+}
+
+.preferences-con {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
+
+.pref-tag {
+  background: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+.pref-tag.active {
+  background: #39db4c;
+  color: white;
+}
+
+.dietary-preferences-input p {
+  font-size: 11px;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: 0.05em;
+}
+
+.password-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 16px;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.password-input input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.password-input span {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}

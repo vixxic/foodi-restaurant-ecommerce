@@ -20,7 +20,7 @@ function Home() {
         </p>
 
         <div>
-          <div onClick={() => navigate("/cart")}>
+          <div onClick={() => navigate("/all-menu")}>
             <GreenBtn text="Order Now" />
           </div>
           <p>Watch Video</p>

@@ -14,9 +14,11 @@ import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 
 import { useNavigate } from "react-router";
+
+import { GlobalContext } from "../../globalContext/GlobalContext";
 
 function SpecialDish() {
   const divider = <hr />;
@@ -30,9 +32,41 @@ function SpecialDish() {
 
   const specialDishData = data.filter((product) => product.special === true);
 
-  const handleLike = () => {
-    alert("Please Login first");
+  const { isAuthentication, cartItems, setCartItems, like, setLike } =
+    useContext(GlobalContext);
+
+  const handleLike = (id) => {
+    if (!isAuthentication) {
+      navigate("/signIn");
+      return;
+    }
+
+    setLike((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    );
   };
+
+  const handleAddCart = (product) => {
+    if (!isAuthentication) {
+      navigate("/signIn");
+      return;
+    }
+
+    setCartItems((prev) => {
+      const existingItem = prev.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+
+      return [...prev, { ...product, quantity: 1 }];
+    });
+  };
+
   return (
     <div id="special-dish" className="Special-dish-section section">
       <div className="title-swiper-btn-con">
@@ -104,9 +138,6 @@ function SpecialDish() {
         {specialDishData.map((product) => (
           <SwiperSlide key={product.id}>
             <div className="product-card">
-              <div onClick={handleLike} className="favorite-btn">
-                {product.like === true ? <FaHeart /> : <FaRegHeart />}
-              </div>
               <img
                 className="product-image"
                 src={product.image}
@@ -132,7 +163,10 @@ function SpecialDish() {
                   {product.rating}({product.reviewCount})
                 </span>
               </div>
-              <button className="add-btn">
+              <button
+                className="add-btn"
+                onClick={() => handleAddCart(product)}
+              >
                 <FaPlus />
               </button>
             </div>

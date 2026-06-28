@@ -84,6 +84,7 @@ function Contact() {
                 id="name"
                 type="text"
                 placeholder="Enter your name"
+                value={formData.name}
                 onChange={(e) => {
                   setFormData({
                     ...formData,
@@ -99,6 +100,7 @@ function Contact() {
                 id="email"
                 type="email"
                 placeholder="hello@example.com"
+                value={formData.email}
                 onChange={(e) => {
                   setFormData({
                     ...formData,
@@ -116,6 +118,7 @@ function Contact() {
               id="subject"
               type="text"
               placeholder="How can we help?"
+              value={formData.subject}
               onChange={(e) => {
                 setFormData({
                   ...formData,
@@ -131,6 +134,7 @@ function Contact() {
               name="text"
               id="text"
               placeholder="Write your message here..."
+              value={formData.message}
               rows="5"
               onChange={(e) => {
                 setFormData({
@@ -141,7 +145,11 @@ function Contact() {
             />
           </div>
 
-          {error ? "Please fill all the form" : ""}
+          {error ? (
+            <p className="error-message">Please fill all the form </p>
+          ) : (
+            ""
+          )}
           <button type="submit" className="btn-submit">
             Send Message <CiPaperplane />
           </button>

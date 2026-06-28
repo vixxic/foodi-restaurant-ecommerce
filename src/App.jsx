@@ -16,6 +16,7 @@ import Services from "./pages/landingPage/Services";
 import Footer from "./pages/landingPage/Footer";
 
 import { Routes, Route } from "react-router";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // e-commerce page
 import ShopHero from "./pages/shopPage/ShopHero";
@@ -27,6 +28,8 @@ import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
 
 import Contact from "./pages/Contact";
+
+import SignIn from "./pages/SignIn";
 
 function App() {
   useEffect(() => {
@@ -124,22 +127,26 @@ function App() {
       <Route
         path="/profile"
         element={
-          <div className="app inter-font">
-            <Navbar />
-            <Profile />
-            <Footer />
-          </div>
+          <ProtectedRoute>
+            <div className="app inter-font">
+              <Navbar />
+              <Profile />
+              <Footer />
+            </div>
+          </ProtectedRoute>
         }
       />
 
       <Route
         path="/cart"
         element={
-          <div className="app inter-font">
-            <Navbar />
-            <Cart />
-            <Footer />
-          </div>
+          <ProtectedRoute>
+            <div className="app inter-font">
+              <Navbar />
+              <Cart />
+              <Footer />
+            </div>
+          </ProtectedRoute>
         }
       />
 
@@ -150,6 +157,23 @@ function App() {
             <Navbar />
             <Contact />
             <Footer />
+          </div>
+        }
+      />
+
+      <Route
+        path="/signin"
+        element={
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "50px auto",
+            }}
+            className="app inter-font"
+          >
+            <SignIn />
           </div>
         }
       />

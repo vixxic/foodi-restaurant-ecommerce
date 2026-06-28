@@ -8,17 +8,50 @@ import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { LuDessert } from "react-icons/lu";
+
+import { useNavigate } from "react-router";
+import { GlobalContext } from "../../globalContext/GlobalContext";
 
 function Shop() {
   const [products] = useState(data);
+  const navigate = useNavigate();
+
+  const { like, setLike, isAuthentication, cartItems, setCartItems } =
+    useContext(GlobalContext);
 
   const [filteredData, setFilteredData] = useState("all");
 
-  const handleLike = () => {
-    // e.stopPropagation();
-    alert("Please Login first");
+  const handleLike = (id) => {
+    if (!isAuthentication) {
+      navigate("/signin");
+      return;
+    }
+
+    setLike((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    );
+  };
+
+  const handleAddCart = (product) => {
+    if (!isAuthentication) {
+      navigate("/signIn");
+    }
+
+    setCartItems((prev) => {
+      const existingItem = prev.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+
+      return [...prev, { ...product, quantity: 1 }];
+    });
   };
 
   const handleCategory = (category) => {
@@ -99,8 +132,11 @@ function Shop() {
       <div className="product-con">
         {displayedProducts.map((product) => (
           <div key={product.id} className="product-card">
-            <div onClick={handleLike} className="favorite-btn">
-              {product.like === true ? <FaHeart /> : <FaRegHeart />}
+            <div
+              onClick={() => handleLike(product.id)}
+              className="favorite-btn"
+            >
+              {like.includes(product.id) ? <FaHeart /> : <FaRegHeart />}
             </div>
 
             <img
@@ -129,7 +165,7 @@ function Shop() {
               </span>
             </div>
 
-            <button className="add-btn">
+            <button className="add-btn" onClick={() => handleAddCart(product)}>
               <FaPlus />
             </button>
           </div>

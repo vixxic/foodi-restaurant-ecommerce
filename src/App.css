@@ -23,3 +23,9 @@ body {
   font-weight: 700;
   font-size: clamp(3rem, 4vw, 3rem);
 }
+
+.error-message {
+  color: red;
+  margin: 0;
+  font-size: 14px;
+}

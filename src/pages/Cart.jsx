@@ -1,33 +1,11 @@
 import "../styles/sections/Cart.css";
 import { AiOutlineDelete } from "react-icons/ai";
 
+import { useContext } from "react";
+import { GlobalContext } from "../globalContext/GlobalContext";
+
 function Cart() {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Grilled Salmon Salad",
-      customization: "Extra dressing, no onions",
-      price: 18.5,
-      quantity: 1,
-      image: "https://via.placeholder.com/100",
-    },
-    {
-      id: 2,
-      name: "Signature Avocado Toast",
-      customization: "With poached egg",
-      price: 14.0,
-      quantity: 2,
-      image: "https://via.placeholder.com/100",
-    },
-    {
-      id: 3,
-      name: "Super Green Smoothie",
-      customization: "Cold-pressed, No honey",
-      price: 8.5,
-      quantity: 1,
-      image: "https://via.placeholder.com/100",
-    },
-  ];
+  const { cartItems } = useContext(GlobalContext);
 
   return (
     <div className="cart-container section">
